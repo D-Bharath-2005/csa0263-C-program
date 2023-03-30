@@ -200,4 +200,127 @@ printf("Strings are not anagrams.\n");
 return 0;
 }
 
+7.	C Program to Find the Sum of ASCII Value of All Characters in the String
+
+#include <stdio.h>
+int main()
+{
+char str[100];
+int sum = 0, i;
+printf("Enter the string: ");
+gets(str);
+for(i = 0; str[i] != '\0'; i++) 
+{
+sum += str[i];
+}
+printf("Sum of all characters: %d", sum);
+return 0;
+}
+
+8.	C Program to Print All Permutations of a Given String
+
+#include <stdio.h>
+#include <string.h>
+void swap(char *x, char *y)
+{
+char temp = *x;
+*x = *y;
+*y = temp;
+}
+void permute(char *str, int l, int r)
+{
+if (l == r) 
+{
+printf("%s\n", str);
+} else {
+for (int i = l; i <= r; i++)
+{
+swap((str+l), (str+i));
+permute(str, l+1, r);
+swap((str+l), (str+i));
+}
+}
+}
+int main() 
+{
+char str[100];
+printf("Enter a string: ");
+scanf("%s", str);
+printf("All possible permutations are:\n");
+int n = strlen(str);
+permute(str, 0, n-1);
+return 0;
+}
+
+9.	Write a C program to copy one array elements to another array using pointers. 
+
+#include <stdio.h>
+#define MAX_SIZE 100
+void copy_array(int *src, int *dest, int size);
+int main() 
+{
+int source_array[MAX_SIZE], target_array[MAX_SIZE];
+int size, i;
+printf("Enter the number of elements in the array: ");
+scanf("%d", &size);
+printf("Enter the elements of the array: ");
+for(i = 0; i < size; i++)
+{
+scanf("%d", &source_array[i]);
+}
+copy_array(source_array, target_array, size);
+printf("Elements of source array: ");
+for(i = 0; i < size; i++) 
+{
+printf("%d ", source_array[i]);
+}
+printf("\nElements of target array: ");
+for(i = 0; i < size; i++) 
+{
+printf("%d ", target_array[i]);
+}
+return 0;
+}
+void copy_array(int *src, int *dest, int size)
+{
+int i;
+for(i = 0; i < size; i++)
+{
+*(dest + i) = *(src + i);
+}
+}
+
+10.	Write a C Program to reverse string using pointers and function. 
+Enter any String :: Saveetha
+The Reverse of the String [ Saveetha ] is ::  ahteevaS
+
+#include <stdio.h>
+#include <string.h>
+void reverse_string(char*);
+int main()
+{
+char str[100];
+printf("Enter any String :: ");
+scanf("%s", str);
+printf("The Reverse of the String [ %s ] is ::  ", str);
+reverse_string(str);
+printf("%s\n", str);
+return 0;
+}
+void reverse_string(char *str)
+{
+int i, j;
+char temp;
+i = 0;
+j = strlen(str) - 1;
+while (i < j)
+{
+temp = *(str + i);
+*(str + i) = *(str + j);
+*(str + j) = temp;
+i++;
+j--;
+}
+}
+
 
