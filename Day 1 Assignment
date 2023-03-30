@@ -183,6 +183,24 @@ int main() {
     return 0;
 }
 
+9.Write a C program to input a number from user and find reverse of the given number using for loop.
+
+#include <stdio.h>
+
+int main() {
+    int num, reverse = 0;
+    printf("Input number: ");
+    scanf("%d", &num);
+
+    for (int i = num; i > 0; i = i / 10) {
+        reverse = reverse * 10 + (i % 10);
+    }
+
+    printf("Reverse of %d = %d\n", num, reverse);
+    return 0;
+}
+
+
 10.Write a C program to input decimal number from user and convert to binary number system.
 
 #include <stdio.h>
